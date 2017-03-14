@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '../../../services';
 
 @Component({
   selector: 'qs-main',
@@ -31,9 +32,10 @@ export class MainComponent {
     },
   ];
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private auth: Auth) {}
 
   logout(): void {
-    this._router.navigate(['/login']);
+    this.auth.logout();
+    this._router.navigate(['']);
   }
 }

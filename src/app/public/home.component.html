@@ -1,0 +1,159 @@
+<td-layout-nav logo="assets:covalent" class="white-orange">
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <span hide-xs>Cafeto Software - Development Test</span>
+    <span flex ></span>
+  </div>
+  <md-toolbar color="primary" class="pad-none pull-top">
+    <nav md-tab-nav-bar class="pull-bottom">
+      <a md-tab-link
+        [routerLink]="['']"
+        class="active">
+        Home
+      </a>
+      <a md-tab-link
+        [routerLink]="['/admin/dashboard']">
+        User's area
+      </a>
+    </nav>
+  </md-toolbar>
+  <section class="bgc-blue-50">
+    <div layout-gt-xs="row">
+      <div flex class="pad" tdMediaToggle="gt-xs" [mediaClasses]="['pad-xl']">
+        <div class="push-top-xl" hide-xs></div>
+        <div tdMediaToggle="gt-sm" [mediaClasses]="['push-lg']">
+          <h1 class="md-display-1 tc-grey-800 push-top-xs push-bottom-sm">Solution architecture</h1>
+          <p class="md-title tc-grey-600">I decided to implement a decoupled solution based on these amazing tools:<br><a href="http://angular.io">Angular 2</a>, <a href="http://wso2.com">WSO2</a>, <a href="https://auth0.com">Auth0</a></p>
+            <button *ngIf="!auth.authenticated()" (click)="auth.login()"  md-raised-button color="accent" class="push-bottom md-button-lg">Log In</button>
+        </div>
+        <div class="push-bottom-xl" hide-xs></div>
+      </div>
+      <div flex="55" class="bg-cover" style="background-image:url('https://assets.entrepreneur.com/static/1425479423-vince-vaughn-appearing-free-cheesy-stock-images-you-can-download-getty-3.jpg');background-size:cover;">
+      </div>
+    </div>
+  </section>
+
+  <section class="bgc-light-blue-600 tc-light-blue-50"  tdMediaToggle="gt-xs" [mediaClasses]="['pad-top-xl', 'pad-bottom-xl']">
+    <h2 class="md-headline text-upper text-center tc-grey-50 push-bottom">Technical Details</h2>
+    <div layout="row" layout-align-gt-xs="center center">
+      <div flex-gt-xs="80" layout="row" layout-wrap>
+        <div class="text-center" flex-xs="50" flex-gt-xs="25">
+          <md-icon class="tc-grey-50 md-display-2">system_update_alt</md-icon>
+          <div class="pad-bottom-md"> Deployed on Windows Azure</div>
+        </div>
+        <div class="text-center" flex-xs="50" flex-gt-xs="25">
+          <md-icon class="tc-grey-50 md-display-2 ">dashboard</md-icon>
+          <div class="pad-bottom-md">Uses MS SQL Server 2016, for the logging</div>
+        </div>
+        <div class="text-center" flex-xs="50" flex-gt-xs="25">
+          <md-icon class="tc-grey-50 md-display-2">email</md-icon>
+          <div class="pad-bottom-md">Multiple types of authentication</div>
+        </div>
+        <div class="text-center" flex-xs="50" flex-gt-xs="25">
+          <md-icon class="tc-grey-50 md-display-2">view_array</md-icon>
+          <div class="pad-bottom-md">Uses World Weather Online API</div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--Product Card code starts here-->
+  <section class="bgc-blue-grey-50" tdMediaToggle="gt-xs" [mediaClasses]="['pad-top-xl', 'pad-bottom-xl']">
+    <div  layout-gt-xs="row" layout-align-gt-xs="center center">
+      <div layout-gt-sm="row" flex-gt-xs="75" layout-margin>
+        <div flex-gt-xs="25">
+          <md-card>
+            <md-toolbar color="accent" class="bgc-light-blue-500 push-bottom">
+              <span class="text-upper">Requirements</span>
+            </md-toolbar>
+            <md-card-subtitle>The user shall be able to:</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-list>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Log in and have a unique view,</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Display recent weather via nice UX/UI design</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Pick a location to show on screen</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Enter a month/year for a location, the system should show historical data for the location</h4>
+              </md-list-item>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Request an extract from the system, the system should offer at least in the CSV format</h4>
+              </md-list-item>
+            </md-list>
+          </md-card>
+        </div>
+
+        <div flex-gt-xs="25">
+          <md-card>
+            <md-toolbar color="accent" class="bgc-light-blue-800 push-bottom">
+              <span class="text-upper">Design Requirements</span>
+            </md-toolbar>
+            <md-card-subtitle>The solution should comply with these requirements:</md-card-subtitle>
+            <md-divider></md-divider>
+            <md-list>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Any APIs should have automated unit tests</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>UI should be tested (by some method)</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>There should be security and system logging</h4>
+              </md-list-item>
+              <md-divider md-inset></md-divider>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>The system should use a database system (MySql, MS SQL Express, etc)</h4>
+              </md-list-item>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>The APIs must use write-thru caching (i.e., memcache)</h4>
+              </md-list-item>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>The system must be secure (secure APIs and UI)</h4>
+              </md-list-item>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Developer must build at least 1 API to store login data with SSL and authentication (prefer Active Directory or LDAP)</h4>
+              </md-list-item>
+              <md-list-item>
+                  <md-icon md-list-icon class="fill-grey-700">description</md-icon>
+                  <h4 md-line>Developer must use at least 1 stored procedure</h4>
+              </md-list-item>
+            </md-list>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bgc-blue-600">
+    <div layout-gt-xs="row">
+      <div flex class="bg-cover" style="background-image:url('https://assets.entrepreneur.com/static/1425478689-vince-vaughn-appearing-free-cheesy-stock-images-you-can-download-getty-2.jpg');background-size:cover;">
+      </div>
+      <div flex class="pad" tdMediaToggle="gt-xs" [mediaClasses]="['pad-xxl']">
+        <div class="push-top-xxl" hide-xs></div>
+        <h3 class="md-display-1 tc-white push-top-xs push-bottom-sm">Developer Contact Info</h3>
+        <p class="md-title tc-blue-50">email: rojaspaul@hotmail.com</p>
+        <p class="md-title tc-blue-50">phone: (+57) 317-669-6469</p>
+        <div class="push-top-xxl" hide-xs></div>
+      </div>
+    </div>
+  </section>
+</td-layout-nav>

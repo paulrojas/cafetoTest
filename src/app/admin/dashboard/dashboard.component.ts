@@ -4,7 +4,7 @@ import { Title }     from '@angular/platform-browser';
 
 import { TdLoadingService, TdDigitsPipe } from '@covalent/core';
 
-import { ItemsService, UsersService, ProductsService, AlertsService } from '../../services';
+import { ItemsService, UsersService, ProductsService, AlertsService, Auth } from '../../../services';
 
 import { multi } from './data';
 
@@ -44,7 +44,9 @@ export class DashboardComponent implements AfterViewInit {
   // line, area
   autoScale: boolean = true;
 
-  constructor(private _titleService: Title,
+  constructor(
+              private auth: Auth,
+              private _titleService: Title,
               private _itemsService: ItemsService,
               private _usersService: UsersService,
               private _alertsService: AlertsService,
