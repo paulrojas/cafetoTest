@@ -1,0 +1,39 @@
+<div class="text-center">
+<img src="{{ weatherData?.icon }}" alt="Weather Condition" />
+</div>
+<div><b>{{ weatherData?.location }}</b> </div>
+<div style="color:#07CFFC"><b>{{ weatherData?.date }}</b> </div>
+<div style="color:#1707FC"> <b>{{ weatherData?.weatherDesc }}</b> </div>
+
+<div layout="row">
+  <div flex="50" class="text-center" layout="column">
+    <span style="font-family: 'Droid Sans', sans-serif; font-size: 100pt">{{ weatherData?.temp }} &#8451;</span>
+  </div>
+</div>
+
+<div layout="row">
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-mostly-cloudy-2 pe-2x"></i><br>
+    {{ weatherData?.cloudcover }}
+  </div>
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-thermometer-4 pe-2x"></i><br>
+    {{ weatherData?.tempMinC }} &#8451;
+  </div>
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-thermometer-1 pe-2x"></i><br>
+    {{ weatherData?.tempMaxC }} &#8451;
+  </div>
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-drop-percentage pe-2x"></i><br>
+    {{ weatherData?.humidity }} %
+  </div>
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-wind-2 pe-2x"></i><br>
+    {{ weatherData?.winddir16Point }}
+  </div>
+  <div flex="16" class="text-center" layout="column">
+    <i class="pe-is-w-wind-cone pe-2x"></i><br>
+    {{ weatherData?.windspeed }} Kmph
+  </div>
+</div>
