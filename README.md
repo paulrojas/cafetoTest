@@ -1,6 +1,4 @@
-# Covalent QuickStart
-
-Quickstart App with @covalent packages
+# Cafeto Software - Development Test
 
 ## Setup
 

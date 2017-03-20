@@ -11,28 +11,16 @@ export class MainComponent {
 
   routes: Object[] = [{
       title: 'Dashboard',
-      route: '/',
+      route: '/admin/dashboard',
       icon: 'dashboard',
-    }, {
-      title: 'Product Dashboard',
-      route: '/product',
-      icon: 'view_quilt',
-    }, {
-      title: 'Product Logs',
-      route: '/logs',
-      icon: 'receipt',
-    }, {
-      title: 'Manage Users',
-      route: '/users',
-      icon: 'people',
-    }, {
-      title: 'Covalent Templates',
-      route: '/templates',
-      icon: 'view_module',
-    },
+    }, 
   ];
 
-  constructor(private _router: Router, private auth: Auth) {}
+  private userProfile: any;
+
+  constructor(private _router: Router, private auth: Auth) {
+    this.userProfile = JSON.parse(localStorage.getItem('profile'));
+  }
 
   logout(): void {
     this.auth.logout();

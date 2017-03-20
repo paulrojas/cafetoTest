@@ -29,6 +29,8 @@ export class AppComponent {
       this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/listener.svg'));
     this._iconRegistry.addSvgIconInNamespace('assets', 'querygrid',
       this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/querygrid.svg'));
+    this._iconRegistry.addSvgIconInNamespace('assets', 'covalent-logo',
+      this._domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/covalent-logo.svg'));
   }
 
 }

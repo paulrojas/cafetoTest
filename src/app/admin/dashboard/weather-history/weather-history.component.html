@@ -17,6 +17,9 @@
   <div layout="col" style="padding-left: 20px;">
     <button md-raised-button color="accent" (click)="showData()">Show Data</button>
   </div>
+  <div layout="col" style="padding-left: 20px;" *ngIf="weatherData != undefined && weatherData.length > 0" >
+    <button md-raised-button color="accent" (click)="exportDataToCSV()">Export Data to CSV</button>
+  </div>
 </div>
 
 <md-divider></md-divider>
