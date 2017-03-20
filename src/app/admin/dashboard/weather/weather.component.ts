@@ -4,7 +4,11 @@ import { WeatherService } from '../../../../services';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
-  styles: [],
+  styles: [`
+    .info {
+      color: #1976d2;
+    }
+  `],
   viewProviders: [ WeatherService ]  
 })
 export class WeatherComponent implements OnInit {
@@ -16,7 +20,23 @@ export class WeatherComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.weatherService.getWeather(this.myLocation).subscribe(
+    this.getWeather(this.myLocation);
+  }
+
+  getWeatherUsingGPS() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let p: string = position.coords.latitude + ',' + position.coords.longitude;
+        this.getWeather(p);
+      },
+      (err) => {
+        alert("We won't be able to get the weather's data without your authorization to get your current location.");
+      }
+    );    
+  }
+
+  getWeather(q: string) {
+    this.weatherService.getWeather(q).subscribe(
       (response: any) => {
         this.weatherData = 
           {
@@ -40,5 +60,4 @@ export class WeatherComponent implements OnInit {
       }
     )
   }
-
 }

@@ -1,6 +1,6 @@
 <td-layout-nav logo="assets:covalent">
   <div td-toolbar-content layout="row" layout-align="center center" flex>
-    <span>Quickstart</span>
+    <span>Paul Rojas - Senior Fullstack Web Developer</span>
     <span flex></span>
     <a md-icon-button mdTooltip="Docs" href="https://teradata.github.io/covalent/" target="_blank"><md-icon>chrome_reader_mode</md-icon></a>
     <a md-icon-button mdTooltip="Github" href="https://github.com/teradata/covalent" target="_blank"><md-icon svgIcon="assets:github"></md-icon></a>
@@ -10,54 +10,17 @@
   <div layout-gt-sm="row" tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
     <div flex-gt-sm="60">
       <md-card>
-        <md-card-title>Products Sales</md-card-title>
-        <md-card-subtitle>usage stats for our products</md-card-subtitle>
+        <md-card-title>Weather Historic Data</md-card-title>
+        <!--md-card-subtitle>usage stats for our products</md-card-subtitle-->
         <md-divider></md-divider>
         
+        <app-weather-history></app-weather-history>
       </md-card>
-      <div layout="row">
-        <div flex="33" layout="column">
-          <md-card class="md-card-colored" flex>
-            <md-card-content class="text-center">
-              <div class="md-headline">{{ '2341'| digits }} <md-icon class="tc-green-500 text-sm">arrow_upward</md-icon></div>
-              <md-icon class="icon tc-indigo-700">perm_contact_calendar</md-icon>
-              <div layout="column">
-                <div class="md-subhead">Active Users</div>
-                <div class="md-caption tc-grey-600">updated {{ '2016-06-17 12:59:59' | timeAgo }}</div>
-              </div>
-            </md-card-content>
-          </md-card>
-        </div>
-        <div flex="33" layout="column">
-          <md-card class="md-card-colored" flex>
-            <md-card-content class="text-center">
-              <div class="md-headline">{{ '72452903343' | bytes }} <md-icon class="tc-red-500 text-sm">arrow_downward</md-icon></div>
-              <md-icon class="icon tc-light-blue-700">sd_storage</md-icon>
-              <div layout="column">
-                <div class="md-subhead">User Disk Usage</div>
-                <div class="md-caption tc-grey-600">updated {{ '2016-07-18 11:02:59' | timeAgo }}</div>
-              </div>
-            </md-card-content>
-          </md-card>
-        </div>
-        <div flex="33" layout="column">
-          <md-card class="md-card-colored" flex>
-            <md-card-content class="text-center">
-              <div class="md-headline">{{ '324523' | digits}} <md-icon class="tc-green-500 text-sm">arrow_upward</md-icon></div>
-              <md-icon class="icon tc-cyan-700">receipt</md-icon>
-              <div layout="column">
-                <div class="md-subhead">Pages Viewed</div>
-                <div class="md-caption tc-grey-600">updated {{ '2016-07-13 09:59:59' | timeAgo }}</div>
-              </div>
-            </md-card-content>
-          </md-card>
-        </div>
-      </div>
     </div>
     <div flex-gt-sm="40">
       <md-card>
         <md-card-title>Weather Info</md-card-title>
-        <md-card-subtitle>{{ currentLocation }}</md-card-subtitle>
+        <!--md-card-subtitle>Here you'll see your </md-card-subtitle-->
         <md-divider></md-divider>
         <app-weather [myLocation]="currentLocation"></app-weather>
         <md-divider></md-divider>

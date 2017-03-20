@@ -18,11 +18,16 @@ import { ChartComponent } from '../components/chart/chart.component';
 import { RequestInterceptor } from '../config/interceptors/request.interceptor';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+import { DatepickerModule } from 'angular2-material-datepicker';
+
 import { Auth } from '../services/auth.service';
 
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { WeatherComponent } from './admin/dashboard/weather/weather.component';
+import { WeatherHistoryComponent } from './admin/dashboard/weather-history/weather-history.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
@@ -40,6 +45,7 @@ const httpInterceptorProviders: Type<any>[] = [
     DashboardComponent,
     ChartComponent,
     WeatherComponent,
+    WeatherHistoryComponent,
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     BrowserModule,
@@ -54,6 +60,8 @@ const httpInterceptorProviders: Type<any>[] = [
     CovalentMarkdownModule.forRoot(),
     appRoutes,
     NgxChartsModule,
+    NgxDatatableModule,
+    DatepickerModule
   ], // modules needed to run this module
   providers: [
     appRoutingProviders,

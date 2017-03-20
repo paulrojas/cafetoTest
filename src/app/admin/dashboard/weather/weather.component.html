@@ -1,16 +1,22 @@
-<div class="text-center">
-<img src="{{ weatherData?.icon }}" alt="Weather Condition" />
+<br>
+<div style="text-align: right; padding-right: 15px;">
+  This is not your location?<br><button (click)="getWeatherUsingGPS()">Check using your browser's location</button>
 </div>
-<div><b>{{ weatherData?.location }}</b> </div>
-<div style="color:#07CFFC"><b>{{ weatherData?.date }}</b> </div>
-<div style="color:#1707FC"> <b>{{ weatherData?.weatherDesc }}</b> </div>
+
+<br>
+<div class="text-center">
+  <img src="{{ weatherData?.icon }}" alt="Weather Condition" />
+</div>
 
 <div layout="row">
-  <div flex="50" class="text-center" layout="column">
+  <div flex="100" class="text-center" layout="column">
     <span style="font-family: 'Droid Sans', sans-serif; font-size: 100pt">{{ weatherData?.temp }} &#8451;</span>
+    <div class="info" style="font-family: 'Fira Sans Condensed', sans-serif; font-size: 30pt"><b>{{ weatherData?.location }}</b> </div>
+    <div class="info" style="font-family: 'Fjalla One', sans-serif; font-size: 20pt"><b>{{ weatherData?.date }}</b> </div>
+    <div class="info" style="font-family: 'Fjalla One', sans-serif; font-size: 20pt"> <b>{{ weatherData?.weatherDesc }}</b> </div>
   </div>
 </div>
-
+<br>
 <div layout="row">
   <div flex="16" class="text-center" layout="column">
     <i class="pe-is-w-mostly-cloudy-2 pe-2x"></i><br>
@@ -37,3 +43,4 @@
     {{ weatherData?.windspeed }} Kmph
   </div>
 </div>
+<br>

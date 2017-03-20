@@ -31,6 +31,23 @@ export class WeatherService {
       .catch(this.handleError);
   }
 
+  getWeatherHistory(location: string, dateStart: string, dateEnd: string = ''): Observable<any> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('q', location);
+    params.set('date', dateStart);
+    if (dateEnd != '') {
+      params.set('enddate', dateEnd);
+    }
+    params.set('format', 'json');
+    params.set('key', 'e256124eca184e7796424854171303');
+
+    return this.http.get( 'http://api.worldweatheronline.com/premium/v1/past-weather.ashx', { search: params } )
+      .map((res: Response) => {
+        return res.json();
+      })
+      .catch(this.handleError);
+  }  
+
   private handleError(error: any) {
     var applicationError = error.headers.get('Application-Error');
     var serverError = error.json();

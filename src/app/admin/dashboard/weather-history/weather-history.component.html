@@ -1,0 +1,98 @@
+<div layout="row">
+  <div layout="col" style="padding-left: 20px;">
+    <md-input-container floatPlaceholder="auto">
+        <input mdInput name="q" [(ngModel)]="q" type="text" required placeholder="Ex.: Your city, country">
+        <span mdPrefix>Location: &nbsp;&nbsp;</span>
+    </md-input-container>
+  </div>
+
+  <div layout="col" style="padding-top: 17px; padding-left: 20px;">
+    Date Start: &nbsp;&nbsp;<material-datepicker [(date)]="dateStart"></material-datepicker>
+  </div>
+
+  <div layout="col" style="padding-top: 17px; padding-left: 20px;">
+    Date End: &nbsp;&nbsp;<material-datepicker [(date)]="dateEnd"></material-datepicker>
+  </div>
+
+  <div layout="col" style="padding-left: 20px;">
+    <button md-raised-button color="accent" (click)="showData()">Show Data</button>
+  </div>
+</div>
+
+<md-divider></md-divider>
+
+<ngx-datatable
+  #myTable
+  class='material expandable'
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [rows]="weatherData"
+  [limit]="10"
+>
+  <!-- Row Detail Template -->
+  <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow (toggle)="onDetailToggle($event)">
+    <template let-value="value" let-row="row" ngx-datatable-row-detail-template>
+      <div style="padding-left:35px;">
+        <ngx-datatable
+          class='material'
+          [columnMode]="'force'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="'auto'"
+          [rows]="row.hourly"
+        >
+          <ngx-datatable-column prop="time" name="Time"></ngx-datatable-column>
+          <ngx-datatable-column prop="tempC" name="Temp. (&#8451;)"></ngx-datatable-column>
+          <ngx-datatable-column prop="cloudcover" name="Cloud Cover"></ngx-datatable-column>
+          <ngx-datatable-column prop="humidity" name="Humidity (%)"></ngx-datatable-column>
+          <ngx-datatable-column prop="precipMM" name="Precip. (MM)"></ngx-datatable-column>
+          <ngx-datatable-column prop="pressure" name="Pressure"></ngx-datatable-column>
+          <ngx-datatable-column prop="" name="Description">
+            <template let-row="row" ngx-datatable-cell-template>
+              {{ row.weatherDesc[0].value }}
+            </template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Icon">
+            <template let-row="row" ngx-datatable-cell-template>
+              <img [src]="row.weatherIconUrl[0].value">
+            </template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </template>
+  </ngx-datatable-row-detail>
+  <!-- Column Templates -->
+  <ngx-datatable-column
+    [width]="50"
+    [resizeable]="false"
+    [sortable]="false"
+    [draggable]="false"
+    [canAutoResize]="false">
+    <template let-row="row" ngx-datatable-cell-template>
+      <a
+        href="javascript: void(0)"
+        [class.icon-right]="!row.$$expanded"
+        [class.icon-down]="row.$$expanded"
+        title="Expand/Collapse Row"
+        (click)="toggleExpandRow(row)">
+      </a>
+    </template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Date" width="200">
+    <template let-value="value" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Min. Temp." width="300">
+    <template let-row="row" ngx-datatable-cell-template>
+      {{ row['mintempC'] }}
+    </template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Max. Temp." >
+    <template let-row="row" ngx-datatable-cell-template>
+      {{ row['maxtempC'] }}
+    </template>
+  </ngx-datatable-column>
+</ngx-datatable>
